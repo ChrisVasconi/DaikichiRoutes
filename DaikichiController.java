@@ -1,4 +1,5 @@
 package com.chrisvasconi.daikichiroutes.controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -7,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DaikichiController {
 	
-		@RequestMapping("")
+		@RequestMapping("/daikichi")
 		public String daikichi() {
 			return "Welcome";
 		}
@@ -22,4 +23,9 @@ public class DaikichiController {
 			return "Tomorrow, an opportunity will arise, so be sure to be open to new ideas!";
 		}
 
-}
+		@RequestMapping("/path/{daikichi}/{travel}/{pittsburgh}")
+	    public String travel(@PathVariable("daikichi") String daikichis, @PathVariable("travel") String travel, @PathVariable("pittsburgh") String pittsburgh){
+	    	return "You will soon travel too"+ " " + pittsburgh;
+	    }
+			}
+
